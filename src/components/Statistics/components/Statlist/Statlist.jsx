@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import StatListItem from "../StatlistItem/StatListItem";
 import classes from "./Statlist.module.css";
 
-const Statlist = (props) => {
+const Statlist = ({ stats }) => {
   function getRandomArbitrary(max) {
     return Math.floor(Math.random() * max);
   }
@@ -16,7 +17,7 @@ const Statlist = (props) => {
   }
   return (
     <ul className={classes.statList}>
-      {props.stats.map((el) => (
+      {stats.map((el) => (
         <StatListItem
           key={el.id}
           label={el.label}
@@ -26,6 +27,10 @@ const Statlist = (props) => {
       ))}
     </ul>
   );
+};
+
+Statlist.propTypes = {
+  stats: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Statlist;

@@ -1,9 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classes from "./Profile.module.css";
 
-const Profile = (props) => {
-  const { username, tag, location, stats, avatar } = props;
-
+const Profile = ({ username, tag, location, stats, avatar }) => {
   return (
     <div className={classes.profile}>
       <div className={classes.description}>
@@ -29,6 +28,16 @@ const Profile = (props) => {
       </ul>
     </div>
   );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  stats: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ),
+  avatar: PropTypes.string,
 };
 
 export default Profile;
