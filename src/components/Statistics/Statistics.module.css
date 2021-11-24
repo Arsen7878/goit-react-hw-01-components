@@ -1,0 +1,17 @@
+.statistics {
+  width: 300px;
+  padding: 10px 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.title {
+  padding: 20px;
+  background-color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: rgb(24, 111, 111);
+}
