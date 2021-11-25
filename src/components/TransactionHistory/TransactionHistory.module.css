@@ -20,3 +20,11 @@
 .tbody {
   text-transform: capitalize;
 }
+
+.tr {
+  background-color: rgb(231, 231, 231);
+}
+
+.td {
+  padding: 5px 10px;
+}

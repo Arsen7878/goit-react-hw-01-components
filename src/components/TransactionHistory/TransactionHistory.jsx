@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import TransactionHistoryItem from "./components/TransactionHistoryItem";
 import classes from "./TransactionHistory.module.css";
 
 const TransactionHistory = ({ items }) => {
@@ -17,12 +16,11 @@ const TransactionHistory = ({ items }) => {
 
       <tbody className={classes.tbody}>
         {items.map((el) => (
-          <TransactionHistoryItem
-            type={el.type}
-            amount={el.amount}
-            currency={el.currency}
-            key={el.id}
-          />
+          <tr className={classes.tr} key={el.id}>
+            <td className={classes.td}>{el.type}</td>
+            <td className={classes.td}>{el.amount}</td>
+            <td className={classes.td}>{el.currency}</td>
+          </tr>
         ))}
       </tbody>
     </table>

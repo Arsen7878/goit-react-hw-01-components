@@ -3,14 +3,15 @@ import PropTypes from "prop-types";
 
 import classes from "./FriendListItem.module.css";
 
-const FriendListItem = ({ name, avatar, isOnline, id }) => {
+const FriendListItem = ({ name, avatar, isOnline }) => {
   return (
-    <li className={classes.item} key={id}>
-      {isOnline ? (
-        <span className={[classes.status, classes.online].join(" ")}></span>
-      ) : (
-        <span className={[classes.status, classes.offline].join(" ")}></span>
-      )}
+    <>
+      <span
+        className={[
+          classes.status,
+          isOnline ? classes.online : classes.offline,
+        ].join(" ")}
+      ></span>
       <img
         className={classes.avatar}
         src={avatar}
@@ -18,7 +19,7 @@ const FriendListItem = ({ name, avatar, isOnline, id }) => {
         width="48"
       />
       <p className="name">{name}</p>
-    </li>
+    </>
   );
 };
 
@@ -26,7 +27,7 @@ FriendListItem.propTypes = {
   name: PropTypes.string,
   avatar: PropTypes.string,
   isOnline: PropTypes.bool,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.number,
 };
 
 export default FriendListItem;

@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./StatListItem.module.css";
-
 const StatListItem = ({ id, label, percentage, background }) => {
   return (
-    <li className={classes.item} key={id} style={{ background: background }}>
-      <span className={classes.label}>{label}</span>
-      <span className={classes.percentage}>{percentage}</span>
-    </li>
+    <>
+      <span className="label">{label}</span>
+      <span className="percentage">{percentage}</span>
+    </>
   );
 };
 
 StatListItem.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.string,
   label: PropTypes.string,
-  percentage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  percentage: PropTypes.number,
   background: PropTypes.string,
 };
 

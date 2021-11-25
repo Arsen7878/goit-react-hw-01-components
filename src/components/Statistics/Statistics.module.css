@@ -1,3 +1,6 @@
+.statList {
+  display: flex;
+}
 .statistics {
   width: 300px;
   margin-right: auto;
@@ -13,4 +16,12 @@
   font-size: 14px;
   text-transform: uppercase;
   color: rgb(24, 111, 111);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 4);
+  color: white;
+  padding: 5px;
 }

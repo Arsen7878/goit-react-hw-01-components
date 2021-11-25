@@ -9,12 +9,14 @@ const FriendList = ({ friends }) => {
   return (
     <ul className={classes.friendList}>
       {friends.map((el) => (
-        <FriendListItem
-          avatar={el.avatar}
-          name={el.name}
-          isOnline={el.isOnline}
-          key={el.id}
-        />
+        <li key={el.id} className={classes.item}>
+          <FriendListItem
+            avatar={el.avatar}
+            name={el.name}
+            isOnline={el.isOnline}
+            key={el.id}
+          />
+        </li>
       ))}
     </ul>
   );
