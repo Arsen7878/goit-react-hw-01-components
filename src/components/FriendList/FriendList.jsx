@@ -8,14 +8,9 @@ import classes from "./FriendList.module.css";
 const FriendList = ({ friends }) => {
   return (
     <ul className={classes.friendList}>
-      {friends.map((el) => (
-        <li key={el.id} className={classes.item}>
-          <FriendListItem
-            avatar={el.avatar}
-            name={el.name}
-            isOnline={el.isOnline}
-            key={el.id}
-          />
+      {friends.map(({ id, avatar, name, isOnline }) => (
+        <li key={id} className={classes.item}>
+          <FriendListItem avatar={avatar} name={name} isOnline={isOnline} />
         </li>
       ))}
     </ul>
@@ -23,7 +18,11 @@ const FriendList = ({ friends }) => {
 };
 
 FriendList.propTypes = {
-  friends: PropTypes.arrayOf(PropTypes.object),
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default FriendList;

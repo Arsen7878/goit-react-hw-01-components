@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { getBgColor } from "../../js/functions";
 
-import StatListItem from "./components/StatlistItem/StatListItem";
-
 import classes from "./Statistics.module.css";
 
 const Statistics = ({ title, stats }) => {
@@ -11,17 +9,14 @@ const Statistics = ({ title, stats }) => {
     <section className={classes.statistics}>
       {title && <h2 className={classes.title}>{title}</h2>}
       <ul className={classes.statList}>
-        {stats.map((el) => (
+        {stats.map(({ label, id, percentage }) => (
           <li
             className={classes.item}
-            key={el.id}
+            key={id}
             style={{ background: getBgColor() }}
           >
-            <StatListItem
-              key={el.id}
-              label={el.label}
-              percentage={el.percentage}
-            />
+            <span className="label">{label}</span>
+            <span className="percentage">{percentage}%</span>
           </li>
         ))}
       </ul>
@@ -31,7 +26,11 @@ const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.arrayOf(PropTypes.object),
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default Statistics;
